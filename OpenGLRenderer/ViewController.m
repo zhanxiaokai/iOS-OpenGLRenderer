@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "CommonUtil.h"
+#import "PngPreviewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)display:(id)sender {
+    NSLog(@"Display Pic...");
+    NSString* pngFilePath = [CommonUtil bundlePath:@"1.png"];
+    PngPreviewController *vc = [PngPreviewController viewControllerWithContentPath:pngFilePath contentFrame:self.view.bounds];
+    [[self navigationController] pushViewController:vc animated:YES];
 }
 
 
